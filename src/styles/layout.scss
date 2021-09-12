@@ -21,66 +21,67 @@
 /* 2.估值表页面
 ------------------------------ */
 .progress {
-  .one {
+  .kinds {
+    font-weight: bold;
+  }
+
+  .kind {
     height: 1rem;
+
     .top {
-      .name {
-        font-weight: bold;
-      }
-  
-      .index {
-        font-weight: bold;
-      }
-  
+      .name {}
+
+      .index {}
+
       .on {}
-  
+
       .over {}
     }
-  
+
     .middle {
-  
+
       // text-align: center;
       .under {
         margin-left: -0.12rem;
       }
-  
+
       .over {
         margin-left: -0.13rem;
       }
-  
+
       .high {
         margin-left: -0.3rem;
       }
     }
-  
+
     .bottom {
       text-align: center;
-  
+
       .under {
         width: 3rem;
         height: 0.25rem;
         margin: 0 auto;
         border: black 4px solid;
       }
-  
+
       .normal {
         width: 3rem;
         height: 0.25rem;
         margin: 0 auto;
         border: black 4px solid;
       }
-  
+
       .over {
         width: 3rem;
         height: 0.25rem;
         margin: 0 auto;
         border: black 4px solid;
       }
-  
+
       .range {
         height: 0.25rem;
       }
-  
+
       .num {
         font-weight: bold;
         margin-top: -0.25rem;

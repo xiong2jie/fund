@@ -1,5 +1,25 @@
 /** 指数 */
 const indexsRaw = {
+  /** 市盈率 */
+  PE: [
+    {
+      name: "名称：中概互联(市销率)",
+      index: "指数：H30533",
+      ROE: "",
+      lowValue: 4.2,
+      underValue: 5.6,
+      overValue: 8,
+      highValue: 12.8,
+      appraisement: 4.2,
+      on: "场内：513050",
+      over: "场外：006327",
+      level: "",
+      ration: "",
+      boxStyle: { under: "", normal: "", over: "" },
+      rangeStyle: { under: "", normal: "", over: "" }
+    },
+
+  ],
   /** 市净率 */
   PBV: [
     {
@@ -114,6 +134,89 @@ const indexsRaw = {
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
+  ],
+  /** 海外市场 */
+  OM: [
+    {
+      name: "名称：全球医疗",
+      index: "指数：SPG120035",
+      ROE: "",
+      lowValue: 15,
+      underValue: 21,
+      overValue: 30,
+      highValue: 45,
+      appraisement: 29.02,
+      on: "场内：",
+      over: "场外：000369",
+      level: "",
+      ration: "",
+      boxStyle: { under: "", normal: "", over: "" },
+      rangeStyle: { under: "", normal: "", over: "" }
+    },
+    {
+      name: "名称：美股消费",
+      index: "指数：IXY",
+      ROE: "",
+      lowValue: 15,
+      underValue: 21,
+      overValue: 30,
+      highValue: 45,
+      appraisement: 36.19,
+      on: "场内：162415",
+      over: "场外：162415",
+      level: "",
+      ration: "",
+      boxStyle: { under: "", normal: "", over: "" },
+      rangeStyle: { under: "", normal: "", over: "" }
+    },
+    {
+      name: "名称：标普科技",
+      index: "指数：SSINFT",
+      ROE: "",
+      lowValue: 15,
+      underValue: 21,
+      overValue: 30,
+      highValue: 90,
+      appraisement: 31.52,
+      on: "场内：161128",
+      over: "场外：161128",
+      level: "",
+      ration: "",
+      boxStyle: { under: "", normal: "", over: "" },
+      rangeStyle: { under: "", normal: "", over: "" }
+    },
+    {
+      name: "名称：纳斯达克100",
+      index: "指数：NDX",
+      ROE: "",
+      lowValue: 15,
+      underValue: 20,
+      overValue: 30,
+      highValue: 85,
+      appraisement: 31.09,
+      on: "场内：513100",
+      over: "场外：513100",
+      level: "",
+      ration: "",
+      boxStyle: { under: "", normal: "", over: "" },
+      rangeStyle: { under: "", normal: "", over: "" }
+    },
+    {
+      name: "名称：标普500",
+      index: "指数：SPX",
+      ROE: "",
+      lowValue: 5.8,
+      underValue: 15,
+      overValue: 25,
+      highValue: 44,
+      appraisement: 25.52,
+      on: "场内：513500",
+      over: "场外：050025",
+      level: "",
+      ration: "",
+      boxStyle: { under: "", normal: "", over: "" },
+      rangeStyle: { under: "", normal: "", over: "" }
+    },
   ]
 }
 
@@ -121,101 +224,104 @@ const indexsRaw = {
 function indexsFuction() {
   let boxWidth = 3;
   const obj = indexsRaw;
-  obj.PBV.forEach(element => {
-    // 低估区域长度
-    let underRation =
-      (boxWidth * (element.appraisement - element.lowValue)) /
-      (element.underValue - element.lowValue);
-    // 正常区域长度
-    let normalRation =
-      (boxWidth * (element.appraisement - element.underValue)) /
-      (element.overValue - element.underValue);
-    // 高估区域长度
-    let overRation =
-      (boxWidth * (element.appraisement - element.overValue)) /
-      (element.highValue - element.overValue);
-    if (element.appraisement < element.lowValue) {
-      /** 1.低于历史区域样式 */
-      // 低估区域
-      element.boxStyle.under =
-        "backgroundColor: #cbf5e9; width: " + boxWidth + "rem";
-      element.rangeStyle.under = "width: 0rem";
-      // 正常区域
-      element.boxStyle.normal = "backgroundColor: #ebf2fc";
-      element.rangeStyle.normal = "width: 0rem";
-      // 高估区域
-      element.boxStyle.over = "backgroundColor: #ebf2fc";
-      element.rangeStyle.over = "width: 0rem";
+  Object.keys(obj).forEach(key => {
+    obj[key].forEach(element => {
+      // 低估区域长度
+      let underRation =
+        (boxWidth * (element.appraisement - element.lowValue)) /
+        (element.underValue - element.lowValue);
+      // 正常区域长度
+      let normalRation =
+        (boxWidth * (element.appraisement - element.underValue)) /
+        (element.overValue - element.underValue);
+      // 高估区域长度
+      let overRation =
+        (boxWidth * (element.appraisement - element.overValue)) /
+        (element.highValue - element.overValue);
+      if (element.appraisement < element.lowValue) {
+        /** 1.低于历史区域样式 */
+        // 低估区域
+        element.boxStyle.under =
+          "backgroundColor: #cbf5e9; width: " + boxWidth + "rem";
+        element.rangeStyle.under = "width: 0rem";
+        // 正常区域
+        element.boxStyle.normal = "backgroundColor: #ebf2fc";
+        element.rangeStyle.normal = "width: 0rem";
+        // 高估区域
+        element.boxStyle.over = "backgroundColor: #ebf2fc";
+        element.rangeStyle.over = "width: 0rem";
 
-    } else if (
-      element.appraisement >= element.lowValue &&
-      element.appraisement < element.underValue
-    ) {
-      /** 2.低估区域样式 */
-      // 低估区域
-      element.boxStyle.under = "backgroundColor: #cbf5e9";
-      element.rangeStyle.under =
-        "backgroundColor: #19d6a0; width:" + underRation + "rem";
-      // 正常区域
-      element.boxStyle.normal = "backgroundColor: #ebf2fc";
-      element.rangeStyle.normal = "width: 0rem";
-      // 高估区域
-      element.boxStyle.over = "backgroundColor: #ebf2fc";
-      element.rangeStyle.over = "width: 0rem";
+      } else if (
+        element.appraisement >= element.lowValue &&
+        element.appraisement < element.underValue
+      ) {
+        /** 2.低估区域样式 */
+        // 低估区域
+        element.boxStyle.under = "backgroundColor: #cbf5e9";
+        element.rangeStyle.under =
+          "backgroundColor: #19d6a0; width:" + underRation + "rem";
+        // 正常区域
+        element.boxStyle.normal = "backgroundColor: #ebf2fc";
+        element.rangeStyle.normal = "width: 0rem";
+        // 高估区域
+        element.boxStyle.over = "backgroundColor: #ebf2fc";
+        element.rangeStyle.over = "width: 0rem";
 
-    } else if (
-      element.appraisement >= element.underValue &&
-      element.appraisement < element.overValue
-    ) {
-      /** 3.正常区域样式 */
-      // 低估区域
-      element.boxStyle.under = "backgroundColor: #fff2df";
-      element.rangeStyle.under =
-        "backgroundColor: #ffcb5d; width: " + boxWidth + "rem";
-      // 正常区域
-      element.boxStyle.normal = "backgroundColor: #fff2df";
-      element.rangeStyle.normal =
-        "backgroundColor: #ffcb5d; width:" + normalRation + "rem";
-      // 高估区域
-      element.boxStyle.over = "backgroundColor: #ebf2fc";
-      element.rangeStyle.over = "width: 0rem";
+      } else if (
+        element.appraisement >= element.underValue &&
+        element.appraisement < element.overValue
+      ) {
+        /** 3.正常区域样式 */
+        // 低估区域
+        element.boxStyle.under = "backgroundColor: #fff2df";
+        element.rangeStyle.under =
+          "backgroundColor: #ffcb5d; width: " + boxWidth + "rem";
+        // 正常区域
+        element.boxStyle.normal = "backgroundColor: #fff2df";
+        element.rangeStyle.normal =
+          "backgroundColor: #ffcb5d; width:" + normalRation + "rem";
+        // 高估区域
+        element.boxStyle.over = "backgroundColor: #ebf2fc";
+        element.rangeStyle.over = "width: 0rem";
 
-    } else if (
-      element.appraisement >= element.overValue &&
-      element.appraisement < element.highValue
-    ) {
-      /** 4.高估区域样式 */
-      // 低估区域
-      element.boxStyle.under = "backgroundColor: #ffddde";
-      element.rangeStyle.under =
-        "backgroundColor: #ff6167; width: " + boxWidth + "rem";
-      // 正常区域
-      element.boxStyle.normal = "backgroundColor: #ffddde";
-      element.rangeStyle.normal =
-        "backgroundColor: #ff6167; width:" + boxWidth + "rem";
-      // 高估区域
-      element.boxStyle.over = "backgroundColor: #ffddde";
-      element.rangeStyle.over =
-        "backgroundColor: #ff6167; width:" + overRation + "rem";
+      } else if (
+        element.appraisement >= element.overValue &&
+        element.appraisement < element.highValue
+      ) {
+        /** 4.高估区域样式 */
+        // 低估区域
+        element.boxStyle.under = "backgroundColor: #ffddde";
+        element.rangeStyle.under =
+          "backgroundColor: #ff6167; width: " + boxWidth + "rem";
+        // 正常区域
+        element.boxStyle.normal = "backgroundColor: #ffddde";
+        element.rangeStyle.normal =
+          "backgroundColor: #ff6167; width:" + boxWidth + "rem";
+        // 高估区域
+        element.boxStyle.over = "backgroundColor: #ffddde";
+        element.rangeStyle.over =
+          "backgroundColor: #ff6167; width:" + overRation + "rem";
 
-    } else {
-      /** 5.高于历史区域样式 */
-      // 低估区域
-      element.boxStyle.under = "backgroundColor: #ffddde";
-      element.rangeStyle.under =
-        "backgroundColor: #ff6167; width: " + boxWidth + "rem";
-      // 正常区域
-      element.boxStyle.normal = "backgroundColor: #ffddde";
-      element.rangeStyle.normal =
-        "backgroundColor: #ff6167; width:" + boxWidth + "rem";
-      // 高估区域
-      element.boxStyle.over = "backgroundColor: #ffddde";
-      element.rangeStyle.over =
-        "backgroundColor: #ff6167; width:" + boxWidth + "rem";
+      } else {
+        /** 5.高于历史区域样式 */
+        // 低估区域
+        element.boxStyle.under = "backgroundColor: #ffddde";
+        element.rangeStyle.under =
+          "backgroundColor: #ff6167; width: " + boxWidth + "rem";
+        // 正常区域
+        element.boxStyle.normal = "backgroundColor: #ffddde";
+        element.rangeStyle.normal =
+          "backgroundColor: #ff6167; width:" + boxWidth + "rem";
+        // 高估区域
+        element.boxStyle.over = "backgroundColor: #ffddde";
+        element.rangeStyle.over =
+          "backgroundColor: #ff6167; width:" + boxWidth + "rem";
 
-    }
-    element.boxStyle
-  });
+      }
+
+    })
+  })
+
   return obj;
 }
 

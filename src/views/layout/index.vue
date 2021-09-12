@@ -7,7 +7,7 @@
       <!-- 内容 -->
       <el-main><router-view></router-view></el-main>
       <!-- 底部 -->
-      <el-footer v-if="routerPath !== '/'"><app-footer></app-footer></el-footer>
+      <el-footer v-if="routerPath !== '/' && routerPath !== '/valuationTable'"><app-footer></app-footer></el-footer>
     </el-container>
   </div>
 </template>
