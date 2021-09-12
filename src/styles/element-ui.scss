@@ -1,0 +1,47 @@
+// elementUI样式
+
+/* el-container（布局容器）
+------------------------------ */
+.el-container {
+  height: 100%;
+}
+.el-header {
+  height: 0.1rem;
+  line-height: 0.1rem;
+  background-color: rgb(0, 147, 221);
+  background-image: url("../../public/static/image/header.png");
+}
+.el-main {}
+.el-footer {
+  background-color: #b3c0d1;
+  color: #333;
+  text-align: center;
+  height: 0.5rem;
+  line-height: 0.5rem;
+}
+
+/* el-menu（导航菜单）
+------------------------------ */
+.el-menu {
+  background-color: rgba(0, 147, 221, 0) !important;
+  height: 0.6rem;
+  min-height: 0.6rem;
+  width: 6rem;
+  border: none !important;
+}
+.el-menu-item {
+  font: 0.16rem bold;
+  height: 0.6rem;
+  line-height: 0.6em;
+  &:hover {
+    background-color: #0f5ba7 !important;
+    outline: 0 !important;
+  }
+  &:active {
+    background-color: #0f5ba7 !important;
+  }
+}
+.el-menu-item.is-active {
+  background-color: #0f5ba7 !important;
+  border: transparent !important;
+}

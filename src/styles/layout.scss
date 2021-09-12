@@ -1,0 +1,202 @@
+/* 1.首页
+------------------------------ */
+.home {
+  background-image: url("../../public/static/image/background.png");
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 10rem;
+  z-index: -10;
+  zoom: 1;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-position: center 0;
+}
+
+/* 2.估值表页面
+------------------------------ */
+.progress {
+  .one {
+    height: 1rem;
+    .top {
+      .name {
+        font-weight: bold;
+      }
+  
+      .index {
+        font-weight: bold;
+      }
+  
+      .on {}
+  
+      .over {}
+    }
+  
+    .middle {
+  
+      // text-align: center;
+      .under {
+        margin-left: -0.12rem;
+      }
+  
+      .over {
+        margin-left: -0.13rem;
+      }
+  
+      .high {
+        margin-left: -0.3rem;
+      }
+    }
+  
+    .bottom {
+      text-align: center;
+  
+      .under {
+        width: 3rem;
+        height: 0.25rem;
+        margin: 0 auto;
+        border: black 4px solid;
+      }
+  
+      .normal {
+        width: 3rem;
+        height: 0.25rem;
+        margin: 0 auto;
+        border: black 4px solid;
+      }
+  
+      .over {
+        width: 3rem;
+        height: 0.25rem;
+        margin: 0 auto;
+        border: black 4px solid;
+      }
+  
+      .range {
+        height: 0.25rem;
+      }
+  
+      .num {
+        font-weight: bold;
+        margin-top: -0.25rem;
+      }
+    }
+  }
+}
+
+/* 3.复利计算页面
+------------------------------ */
+.compound-interest {
+  text-align: center; // 字体居中
+
+  .img-style {
+    // 图片大小
+    width: 3rem;
+    height: 2rem;
+  }
+
+  .card-style {
+    // card居中布局
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .el-card {
+    width: 4rem;
+    line-height: 0.62rem;
+  }
+
+  .el-card__header {
+    background-color: lightseagreen;
+    font-size: 0.18rem;
+    font-weight: bold;
+    height: 1rem;
+    line-height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* 4.定投计算页面
+------------------------------ */
+.fixed-investment {
+  /* card居中布局 */
+  margin-top: 1.5rem;
+  text-align: center; // 字体居中
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .el-card {
+    width: 15rem;
+    line-height: 0.62rem;
+  }
+
+  .el-card__header {
+    background-color: lightseagreen;
+    font-size: 0.2rem !important;
+    font-weight: bold;
+    height: 1.2rem;
+    line-height: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .slot-header {
+      width: 14rem;
+    }
+  }
+
+  .primary-body {
+    .el-card {
+      width: 12rem;
+      line-height: 0.62rem;
+      margin-left: 1.3rem !important;
+    }
+
+    .el-card__header {
+      background-color: white;
+      font-size: 0.18rem !important;
+      font-weight: bold;
+      height: 1.2rem;
+      line-height: 0.4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .slot-header {
+        width: 10rem;
+      }
+    }
+
+    .secondary-body {
+      .el-card {
+        width: 5rem;
+        line-height: 0.62rem;
+        margin-left: 0.4rem !important;
+      }
+
+      .el-card__header {
+        background-color: white;
+        font-size: 0.18rem !important;
+        font-weight: bold;
+        height: 1.2rem;
+        line-height: 0.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .slot-header {
+          width: 4rem;
+        }
+      }
+    }
+  }
+}
