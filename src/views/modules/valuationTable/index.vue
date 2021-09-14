@@ -44,7 +44,11 @@
             <div class="under" :style="item.boxStyle.under">
               <div class="range" :style="item.rangeStyle.under"></div>
               <div class="num" v-show="item.appraisement < item.underValue">
-                {{ item.appraisement }}
+                <el-row type="flex" justify="center">
+                  <el-col class="left"><span v-if="item.downRation != '★'">&#8595;</span>{{ item.downRation }}</el-col>
+                  <el-col class="center">{{ item.appraisement }}</el-col>
+                  <el-col class="right">&#8593;{{ item.upRation }}</el-col>
+                </el-row>
               </div>
             </div>
           </el-col>

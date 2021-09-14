@@ -83,8 +83,10 @@
       }
 
       .num {
-        font-weight: bold;
         margin-top: -0.25rem;
+        .center {
+          font-weight: bold;
+        }
       }
     }
   }

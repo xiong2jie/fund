@@ -10,11 +10,11 @@ const indexsRaw = {
       underValue: 5.6,
       overValue: 8,
       highValue: 12.8,
-      appraisement: 4.2,
+      appraisement: 4.1,
       on: "场内：513050",
       over: "场外：006327",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -33,8 +33,8 @@ const indexsRaw = {
       appraisement: 1.12,
       on: "场内：512200",
       over: "场外：160218",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -49,8 +49,8 @@ const indexsRaw = {
       appraisement: 1.05,
       on: "场内：",
       over: "场外：005223",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -65,8 +65,8 @@ const indexsRaw = {
       appraisement: 0.79,
       on: "场内：512800",
       over: "场外：001594",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -81,8 +81,8 @@ const indexsRaw = {
       appraisement: 1.75,
       on: "场内：",
       over: "场外：004856",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -97,8 +97,8 @@ const indexsRaw = {
       appraisement: 1.63,
       on: "场内：512000",
       over: "场外：004069",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -113,8 +113,8 @@ const indexsRaw = {
       appraisement: 4.32,
       on: "场内：512680",
       over: "场外：161024",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -129,8 +129,8 @@ const indexsRaw = {
       appraisement: 4.52,
       on: "场内：512580",
       over: "场外：001064",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -148,8 +148,8 @@ const indexsRaw = {
       appraisement: 29.02,
       on: "场内：",
       over: "场外：000369",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -164,8 +164,8 @@ const indexsRaw = {
       appraisement: 36.19,
       on: "场内：162415",
       over: "场外：162415",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -180,8 +180,8 @@ const indexsRaw = {
       appraisement: 31.52,
       on: "场内：161128",
       over: "场外：161128",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -196,8 +196,8 @@ const indexsRaw = {
       appraisement: 31.09,
       on: "场内：513100",
       over: "场外：513100",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -212,8 +212,8 @@ const indexsRaw = {
       appraisement: 25.52,
       on: "场内：513500",
       over: "场外：050025",
-      level: "",
-      ration: "",
+      downRation: "",
+      upRation: "",
       boxStyle: { under: "", normal: "", over: "" },
       rangeStyle: { under: "", normal: "", over: "" }
     },
@@ -241,6 +241,9 @@ function indexsFuction() {
       if (element.appraisement < element.lowValue) {
         /** 1.低于历史区域样式 */
         // 低估区域
+        element.downRation = "★";
+        element.upRation = Number((element.underValue - element.appraisement) /
+          (element.appraisement)*100).toFixed(2)+"%";
         element.boxStyle.under =
           "backgroundColor: #cbf5e9; width: " + boxWidth + "rem";
         element.rangeStyle.under = "width: 0rem";
