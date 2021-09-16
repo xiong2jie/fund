@@ -21,13 +21,18 @@
 /* 2.估值表页面
 ------------------------------ */
 .progress {
+  background-color:rgb(239, 243, 243);
   .kinds {
     font-weight: bold;
+    line-height: 0.5rem;
+  }
+
+  .surplus {
+    margin-top: 0.2rem;
   }
 
   .kind {
-    height: 1rem;
-
+    background-color:rgb(255, 255, 255);
     .top {
       .name {}
 
@@ -39,18 +44,12 @@
     }
 
     .middle {
+      .under {}
 
-      // text-align: center;
-      .under {
-        margin-left: -0.12rem;
-      }
-
-      .over {
-        margin-left: -0.13rem;
-      }
+      .over {}
 
       .high {
-        margin-left: -0.3rem;
+        float: right;
       }
     }
 
@@ -61,21 +60,21 @@
         width: 3rem;
         height: 0.25rem;
         margin: 0 auto;
-        border: black 4px solid;
+        border: black 2px solid;
       }
 
       .normal {
         width: 3rem;
         height: 0.25rem;
         margin: 0 auto;
-        border: black 4px solid;
+        border: black 2px solid;
       }
 
       .over {
         width: 3rem;
         height: 0.25rem;
         margin: 0 auto;
-        border: black 4px solid;
+        border: black 2px solid;
       }
 
       .range {
@@ -84,9 +83,34 @@
 
       .num {
         margin-top: -0.25rem;
+
+        .left {}
+
         .center {
           font-weight: bold;
         }
+      }
+    }
+
+    .floor {
+      margin-bottom: 0.08rem;
+
+      .under {
+        width: 3rem;
+        height: 0.25rem;
+        margin: 0 auto;
+      }
+
+      .normal {
+        width: 3rem;
+        height: 0.25rem;
+        margin: 0 auto;
+      }
+
+      .over {
+        width: 3rem;
+        height: 0.25rem;
+        margin: 0 auto;
       }
     }
   }
