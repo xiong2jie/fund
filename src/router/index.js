@@ -28,7 +28,12 @@ const routes = [
         path: "fixedInvestment",
         name: "FixedInvestment",
         component: () => import("@/views/modules/fixedInvestment")
-      }
+      },
+      {
+        path: "test",
+        name: "test",
+        component: () => import("@/views/modules/test")
+      },
     ]
   }
 ]

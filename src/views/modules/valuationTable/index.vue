@@ -1,5 +1,7 @@
 <template>
   <div class="progress">
+    <div class="kinds">估值状态表</div>
+    <starGauge></starGauge>
     <!-- 盈利收益率 -->
     <div class="kinds">盈利收益率</div>
     <div class="kind" v-for="item in indexsRipe.ER" :key="item.name">
@@ -49,9 +51,9 @@
                     ><span v-if="item.downRation != '低于历史'">&#8595;</span
                     >{{ item.downRation }}</el-col
                   >
-                  <el-col class="center">{{
-                    item.appraisement.toFixed(2)
-                  }}</el-col>
+                  <el-col class="center"
+                    >{{ item.appraisement.toFixed(2) }}%</el-col
+                  >
                   <el-col class="right">&#8593;{{ item.upRation }}</el-col>
                 </el-row>
               </div>
@@ -71,9 +73,9 @@
                   <el-col class="left" :style="item.downStyle"
                     >&#8595;{{ item.downRation }}</el-col
                   >
-                  <el-col class="center">{{
-                    item.appraisement.toFixed(2)
-                  }}</el-col>
+                  <el-col class="center"
+                    >{{ item.appraisement.toFixed(2) }}%</el-col
+                  >
                   <el-col class="right">&#8593;{{ item.upRation }}</el-col>
                 </el-row>
               </div>
@@ -87,9 +89,9 @@
                   <el-col class="left" :style="item.downStyle"
                     >&#8595;{{ item.downRation }}</el-col
                   >
-                  <el-col class="center">{{
-                    item.appraisement.toFixed(2)
-                  }}</el-col>
+                  <el-col class="center"
+                    >{{ item.appraisement.toFixed(2) }}%</el-col
+                  >
                   <el-col class="right"
                     ><span v-if="item.upRation != '高于历史'">&#8593;</span
                     >{{ item.upRation }}</el-col
@@ -598,15 +600,19 @@
 
 <script>
 import { indexsRipe } from "./common/index";
+import starGauge from "./components/starGauge.vue"
 export default {
   name: "",
-  components: {},
+  components: {
+    starGauge
+  },
   data() {
     return {
       indexsRipe, // 指数
     };
   },
-  methods: {},
+  methods: {
+  },
   created() {},
 };
 </script>
