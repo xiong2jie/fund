@@ -1,5 +1,5 @@
 <template>
-  <div id="myChart" :style="{ width: '5rem', height: '5rem' }"></div>
+  <div id="myChart"></div>
 </template>
 <script>
 import * as echarts from "echarts";
@@ -59,13 +59,14 @@ export default {
               length: 15, // 刻度线长。支持相对半径的百分比。
               lineStyle: {
                 color: "#000", // 线的颜色。
+                
               },
             },
             // 刻度标签。
             axisLabel: {
               show: true, // 是否显示标签。
-              distance: -80, // 标签与刻度线的距离。
-              fontSize: 25, // 文字字体的风格。
+              distance: -70, // 标签与刻度线的距离。
+              fontSize: 15, // 文字字体的风格。
               color: "#000", // 文字的颜色。
             },
             // 表盘中指针的固定点。
@@ -95,7 +96,7 @@ export default {
               show: true, // 是否显示详情。
               offsetCenter: ["0", "-15%"], // 相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
               valueAnimation: true, // 是否开启标签的数字动画。
-              fontSize: 45, // 文字的字体大小。
+              fontSize: 40, // 文字的字体大小。
             },
             // 系列中的数据内容数组。数组项可以为单个数值。
             data: [
@@ -142,7 +143,7 @@ export default {
             axisLabel: {
               show: true, // 是否显示标签。
               distance: 60, // 标签与刻度线的距离。
-              fontSize: 25, // 文字字体的风格。
+              fontSize: 12, // 文字字体的风格。
               color: "#000", // 文字的颜色。
               formatter: (value) => {
                 return Math.round(value)
@@ -167,6 +168,7 @@ export default {
               show: true, // 是否显示详情。
               offsetCenter: ["0", "20%"], // 相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
               valueAnimation: true, // 是否开启标签的数字动画。
+              fontSize: 20, // 文字的字体大小。
             },
             // 系列中的数据内容数组。数组项可以为单个数值。
             data: [

@@ -1,23 +1,26 @@
 <template>
   <div class="progress">
+    <div class="layout">
     <div class="kinds">估值状态表</div>
-    <starGauge></starGauge>
+    <div class="gauge">
+      <starGauge></starGauge>
+    </div>
     <!-- 盈利收益率 -->
     <div class="kinds">盈利收益率</div>
     <div class="kind" v-for="item in indexsRipe.ER" :key="item.name">
       <!---->
       <div class="top">
         <el-row>
-          <el-col :span="3">
+          <el-col :span="7">
             <div class="name">{{ item.name }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5">
             <div class="index">{{ item.index }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5" :offset="1">
             <div class="on">{{ item.on }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5" :offset="1">
             <div class="over">{{ item.over }}</div>
           </el-col>
         </el-row>
@@ -25,16 +28,16 @@
       <!---->
       <div class="middle">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="6">
             <div class="low">{{ item.lowValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="4" :offset="2">
             <div class="under">{{ item.underValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="3" :offset="1">
+          <el-col :span="2" :offset="4">
             <div class="over">{{ item.overValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="1">
+          <el-col :span="6">
             <div class="high">{{ item.highValue.toFixed(2) }}</div>
           </el-col>
         </el-row>
@@ -42,7 +45,7 @@
       <!---->
       <div class="bottom">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="under" :style="item.boxStyle.under">
               <div class="range" :style="item.rangeStyle.under"></div>
               <div class="num" v-show="item.appraisement > item.underValue">
@@ -59,7 +62,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="normal" :style="item.boxStyle.normal">
               <div class="range" :style="item.rangeStyle.normal"></div>
               <div
@@ -81,7 +84,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="over" :style="item.boxStyle.over">
               <div class="range" :style="item.rangeStyle.over"></div>
               <div class="num" v-show="item.appraisement <= item.overValue">
@@ -105,7 +108,7 @@
       <!---->
       <div class="floor">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="under">
               <div class="num" v-show="item.appraisement > item.underValue">
                 <el-row type="flex" justify="space-around">
@@ -117,7 +120,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="normal">
               <div
                 class="num"
@@ -135,7 +138,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="over">
               <div class="num" v-show="item.appraisement <= item.overValue">
                 <el-row type="flex" justify="space-around">
@@ -157,16 +160,16 @@
       <!---->
       <div class="top">
         <el-row>
-          <el-col :span="3">
+          <el-col :span="7">
             <div class="name">{{ item.name }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5">
             <div class="index">{{ item.index }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5" :offset="1">
             <div class="on">{{ item.on }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5" :offset="1">
             <div class="over">{{ item.over }}</div>
           </el-col>
         </el-row>
@@ -174,16 +177,16 @@
       <!---->
       <div class="middle">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="6">
             <div class="low">{{ item.lowValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="4" :offset="2">
             <div class="under">{{ item.underValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="3" :offset="1">
+          <el-col :span="2" :offset="4">
             <div class="over">{{ item.overValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="1">
+          <el-col :span="6">
             <div class="high">{{ item.highValue.toFixed(2) }}</div>
           </el-col>
         </el-row>
@@ -191,7 +194,7 @@
       <!---->
       <div class="bottom">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="under" :style="item.boxStyle.under">
               <div class="range" :style="item.rangeStyle.under"></div>
               <div class="num" v-show="item.appraisement < item.underValue">
@@ -208,7 +211,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="normal" :style="item.boxStyle.normal">
               <div class="range" :style="item.rangeStyle.normal"></div>
               <div
@@ -230,7 +233,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="over" :style="item.boxStyle.over">
               <div class="range" :style="item.rangeStyle.over"></div>
               <div class="num" v-show="item.appraisement >= item.overValue">
@@ -254,7 +257,7 @@
       <!---->
       <div class="floor">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="under">
               <div class="num" v-show="item.appraisement < item.underValue">
                 <el-row type="flex" justify="space-around">
@@ -266,7 +269,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="normal">
               <div
                 class="num"
@@ -284,7 +287,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="over">
               <div class="num" v-show="item.appraisement >= item.overValue">
                 <el-row type="flex" justify="space-around">
@@ -305,16 +308,16 @@
       <!---->
       <div class="top">
         <el-row>
-          <el-col :span="3">
+          <el-col :span="7">
             <div class="name">{{ item.name }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5">
             <div class="index">{{ item.index }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5" :offset="1">
             <div class="on">{{ item.on }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5" :offset="1">
             <div class="over">{{ item.over }}</div>
           </el-col>
         </el-row>
@@ -322,16 +325,16 @@
       <!---->
       <div class="middle">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="6">
             <div class="low">{{ item.lowValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="4" :offset="2">
             <div class="under">{{ item.underValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="3" :offset="1">
+          <el-col :span="2" :offset="4">
             <div class="over">{{ item.overValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="1">
+          <el-col :span="6">
             <div class="high">{{ item.highValue.toFixed(2) }}</div>
           </el-col>
         </el-row>
@@ -339,7 +342,7 @@
       <!---->
       <div class="bottom">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="under" :style="item.boxStyle.under">
               <div class="range" :style="item.rangeStyle.under"></div>
               <div class="num" v-show="item.appraisement < item.underValue">
@@ -356,7 +359,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="normal" :style="item.boxStyle.normal">
               <div class="range" :style="item.rangeStyle.normal"></div>
               <div
@@ -378,7 +381,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="over" :style="item.boxStyle.over">
               <div class="range" :style="item.rangeStyle.over"></div>
               <div class="num" v-show="item.appraisement >= item.overValue">
@@ -402,7 +405,7 @@
       <!---->
       <div class="floor">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="under">
               <div class="num" v-show="item.appraisement < item.underValue">
                 <el-row type="flex" justify="space-around">
@@ -414,7 +417,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="normal">
               <div
                 class="num"
@@ -432,7 +435,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="over">
               <div class="num" v-show="item.appraisement >= item.overValue">
                 <el-row type="flex" justify="space-around">
@@ -453,16 +456,16 @@
       <!---->
       <div class="top">
         <el-row>
-          <el-col :span="3">
+          <el-col :span="5">
             <div class="name">{{ item.name }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="6" :offset="2">
             <div class="index">{{ item.index }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5">
             <div class="on">{{ item.on }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="5" :offset="1">
             <div class="over">{{ item.over }}</div>
           </el-col>
         </el-row>
@@ -470,16 +473,16 @@
       <!---->
       <div class="middle">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="6">
             <div class="low">{{ item.lowValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="4" :offset="2">
             <div class="under">{{ item.underValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="3" :offset="1">
+          <el-col :span="2" :offset="4">
             <div class="over">{{ item.overValue.toFixed(2) }}</div>
           </el-col>
-          <el-col :span="1">
+          <el-col :span="6">
             <div class="high">{{ item.highValue.toFixed(2) }}</div>
           </el-col>
         </el-row>
@@ -487,7 +490,7 @@
       <!---->
       <div class="bottom">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="under" :style="item.boxStyle.under">
               <div class="range" :style="item.rangeStyle.under"></div>
               <div class="num" v-show="item.appraisement < item.underValue">
@@ -504,7 +507,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="normal" :style="item.boxStyle.normal">
               <div class="range" :style="item.rangeStyle.normal"></div>
               <div
@@ -526,7 +529,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="over" :style="item.boxStyle.over">
               <div class="range" :style="item.rangeStyle.over"></div>
               <div class="num" v-show="item.appraisement >= item.overValue">
@@ -550,7 +553,7 @@
       <!---->
       <div class="floor">
         <el-row>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="under">
               <div class="num" v-show="item.appraisement < item.underValue">
                 <el-row type="flex" justify="space-around">
@@ -562,7 +565,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="normal">
               <div
                 class="num"
@@ -580,7 +583,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="over">
               <div class="num" v-show="item.appraisement >= item.overValue">
                 <el-row type="flex" justify="space-around">
@@ -594,6 +597,8 @@
           </el-col>
         </el-row>
       </div>
+    </div>
+      
     </div>
   </div>
 </template>

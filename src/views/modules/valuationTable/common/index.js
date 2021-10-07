@@ -1109,7 +1109,7 @@ const indexsRaw = {
 
 /** 判断指数当前所属区域 */
 function indexsFuction() {
-  let boxWidth = 3;
+  let boxWidth = 2.5;
   const obj = indexsRaw;
   Object.keys(obj).forEach(key => {
     if (key === "ER") {

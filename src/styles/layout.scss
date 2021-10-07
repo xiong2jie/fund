@@ -20,111 +20,134 @@
 
 /* 2.估值表页面
 ------------------------------ */
+// 
+#myChart {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+//估值表 
 .progress {
   background-color: rgb(239, 243, 243);
 
-  .kinds {
-    font-weight: bold;
-    line-height: 0.5rem;
-  }
+  .layout {
+    width: 7.6rem;
 
-  .surplus {
-    margin-top: 0.2rem;
-  }
-
-  .kind {
-    background-color: rgb(255, 255, 255);
-
-    .top {
-      .name {}
-
-      .index {}
-
-      .on {}
-
-      .over {}
+    .kinds {
+      font-weight: bold;
+      line-height: 0.5rem;
     }
 
-    .middle {
-      font-size: 0.15rem;
-
-      .under {}
-
-      .over {}
-
-      .high {
-        float: right;
-      }
+    .gauge {
+      background-color: rgb(255, 255, 255);
     }
 
-    .bottom {
-      text-align: center;
-
-      .under {
-        width: 3rem;
-        height: 0.25rem;
-        margin: 0 auto;
-        border: black 2px solid;
-      }
-
-      .normal {
-        width: 3rem;
-        height: 0.25rem;
-        margin: 0 auto;
-        border: black 2px solid;
-      }
-
-      .over {
-        width: 3rem;
-        height: 0.25rem;
-        margin: 0 auto;
-        border: black 2px solid;
-      }
-
-      .range {
-        height: 0.25rem;
-      }
-
-      .num {
-        margin-top: -0.25rem;
-        
-        .left {
-
-          font-size: 0.15rem;
-          margin-top: 0.03rem;
-        }
-
-        .center {
-          font-weight: bold;
-        }
-
-        .right {
-
-          font-size: 0.15rem;
-          margin-top: 0.03rem;
-        }
-      }
+    .surplus {
+      margin-top: 0.2rem;
     }
 
-    .floor {
-      font-size: 0.15rem;
-      margin-top: 0.03rem;
-      margin-bottom: 0.08rem;
-      height: 0.18rem;
+    .kind {
+      background-color: rgb(255, 255, 255);
 
-      .under {
-        width: 3rem;
-        height: 0.25rem;
+      .top {
+        .name {}
+
+        .index {
+          color: #b6b7b7;
+        }
+
+        .on {
+          color: #b6b7b7;
+        }
+
+        .over {
+          color: #b6b7b7;
+        }
       }
 
-      .normal {
-        width: 3rem;
-        height: 0.25rem;
+      .middle {
+        font-size: 0.15rem;
+
+        .under {}
+
+        .over {}
+
+        .high {
+          float: right;
+        }
       }
 
-      .over {
-        width: 3rem;
-        height: 0.25rem;
+      .bottom {
+        text-align: center;
+
+        .under {
+          width: 2.5rem;
+          height: 0.25rem;
+          margin: 0 auto;
+          border: black 0.01rem solid;
+        }
+
+        .normal {
+          width: 2.5rem;
+          height: 0.25rem;
+          margin: 0 auto;
+          border: black 0.01rem solid;
+
+        }
+
+        .over {
+          width: 2.5rem;
+          height: 0.25rem;
+          margin: 0 auto;
+          border: black 0.01rem solid;
+
+        }
+
+        .range {
+          height: 0.25rem;
+        }
+
+        .num {
+          margin-top: -0.25rem;
+
+          .left {
+
+            font-size: 0.15rem;
+            margin-top: 0.03rem;
+          }
+
+          .center {
+            font-weight: bold;
+          }
+
+          .right {
+
+            font-size: 0.15rem;
+            margin-top: 0.03rem;
+          }
+        }
+      }
+
+      .floor {
+        font-size: 0.15rem;
+        margin-top: 0.03rem;
+        margin-bottom: 0.08rem;
+        height: 0.18rem;
+
+        .under {
+          width: 2.35rem;
+          height: 0.25rem;
+        }
+
+        .normal {
+          width: 2.35rem;
+          height: 0.25rem;
+        }
+
+        .over {
+          width: 2.35rem;
+          height: 0.25rem;
+        }
       }
     }
   }
